@@ -19,7 +19,8 @@
                 <div class="producto__informacion">
                     <p class="producto__nombre">{{articulo.name}}</p>
                     <p class="producto__descripcion">{{articulo.description}}</p>
-                    <p class="enlace-eliminar"><a class="enlace-eliminar" href="/eliminar/{{articulo.id}}">Eliminar</a></p>                    
+                    <p class="p__eliminar"> <a class="enlace__eliminar" href="/eliminar/{{articulo.id}}">Eliminar</a> </p>
+                    <p class="p__actualizar"> <a class="enlace__actualizar" href="{{url_for('actualizar_articulo', id=articulo.id)}}">Actualizar</a> </p>                          
                 </div>
             </div>
         {%endfor%}
