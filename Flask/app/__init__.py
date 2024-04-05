@@ -267,8 +267,50 @@ def crear_categoria():
     
     return render_template('crear_categoria.html', form=form, categorias=categorias_existentes)
 
-def actualizar_articulo():
-    pass
+@app.route('/actualizar/<int:id>', methods=['GET', 'POST'])
+@login_required
+def actualizar_articulo(id):
+    articulo = Articulo.query.get_or_404(id)
+    categoria = Categorias.query.filter_by(id=articulo.categoria_id).first()
+    form = Actualizar_Articulo_Form(obj=articulo)
+    if form.validate_on_submit():
+        if form.nombre_articulo.data:
+            try:
+                articulo.name = form.nombre_articulo.data
+                db.session.commit()
+                return 'Nombre del articulo actualizado exitosamente'
+            except Exception as e :
+                print('a')
+                db.session.rollback()
+        if form.precio_articulo.data:
+            try:
+                articulo.price = int(form.precio_articulo.data)
+                db.session.commit()
+                return 'Precio del articulo actualizado exitosamente'
+            except Exception as e:
+                print('b')
+                db.session.rollback()
+        if form.descripcion_articulo.data:
+            try:
+                articulo.description = form.descripcion_articulo.data
+                db.session.commit()
+                return 'Descripcion del articulo actualizado exitosamente'
+            except:
+                print('c')
+                db.session.rollback()
+        if form.imagen_articulo.data:
+            try:
+                path_imagen = Path('app/') / app.config['UPLOAD_FOLDER'] / categoria.name / articulo.image_name
+                Path.unlink(path_imagen)
+                file = form.imagen_articulo.data
+                file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], categoria.name, secure_filename(file.filename)))
+                articulo.image_name = file.filename
+                db.session.commit()
+                return 'Imagen del articulo actualizada exitosamente'
+            except Exception:  
+                print('d')
+
+    return render_template('actualizar_producto.html', form=form, articulo=articulo)
 
 @app.route('/contacto')
 def contacto():
