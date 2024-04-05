@@ -1,5 +1,4 @@
-Esta web es un proyecto en el que estoy trabajando, aun falta una funcion para actualizar los productos, terminar de configurar el servidor SMTP para el envio de correos y poder habilitar la funcion y formulario de "reset password"
-Ademas terminar los media query para 2 resoluciones mas  
+Esta es la primer web que diseño usando flask como framework en el backend
 
 Para instalar las librerias necesarias para correr el proyecto hay que ejecutar los siguientes comandos:
 pip install -r path/to/requirements.txt
