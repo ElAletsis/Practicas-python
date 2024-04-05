@@ -577,6 +577,9 @@ select {
     }
 }
 
+
+/** media para pantallas con una 
+    resolucion menor o igual a 412px **/
 @media (max-width:412px) {
 
     .grid{
