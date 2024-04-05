@@ -52,6 +52,7 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
 }
 
 .nosotros {
@@ -95,8 +96,15 @@ header {
 }
 
 /** Barra de navegacion **/ 
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Evita que los elementos con hover se sobre pongan a la barra de navegacion*/
+}
+
 .navegacion {
-    background-color: #000000;
+    background-color: #bdf3f3;
     padding: 2rem 0;
     margin-bottom: 1rem;
     display: flex;
@@ -111,7 +119,7 @@ header {
     font-family: "Madimi One", sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: #ffffff;
+    color: #000000;
     margin: 0 1rem;
 }
 
@@ -120,7 +128,7 @@ span {
     font-family: "Madimi One", sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: #ffffff;
+    color: #000000;
     margin: 0 1rem;
     margin: 0;
 }
@@ -129,13 +137,16 @@ span {
     color:#608bb4;
 }
 
-/**Grid**/
+/** Fin Barra de navegacion **/
+
+/** Grid **/
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 2rem;
     row-gap: 2rem;    
 }
+/** Fin Grid **/
 
 /** Producto **/
 .producto {
@@ -153,13 +164,21 @@ span {
 .producto__precio{
     font-size: 2rem;
     padding-bottom: 1rem;
-    color: #007bff;
+    color: #8b8e91;
 }
 
 .producto__nombre {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #5f6a75;
+    color: #000000;
+}
+
+.producto__categoria {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #000000;
+    font-weight: 650;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .producto__informacion {    
@@ -171,22 +190,19 @@ span {
 .producto__descripcion {
     font-size: 2.2rem;
     margin-bottom: 1rem;
-    color: #e4412b;
+    color: #c29f9a;
 }
 
 .producto__imagen {
-
     transition: transform 0.2s;
 }
 
-.producto__imagen:hover,
-.enlace-eliminar:hover {
+.producto__imagen:hover {
     transform: scale(1.15);
 }
 
 .producto__nombre,
 .producto__precio,
-.enlace-eliminar,
 .producto__descripcion {
     font-family: "Pacifico", cursive;   
     margin: 1rem;
@@ -194,15 +210,35 @@ span {
     text-align: center;
 }
 
-.enlace-eliminar {
+.enlace__eliminar {
     margin: 0;
     color: red;
+    font-family: sans-serif;
     width: auto;
     font-size: 2rem;
 }
-.enlace-eliminar:hover{
-    color:#000000;
+
+.enlace__actualizar {
+    margin: 0;
+    color: #000000;
+    font-family: sans-serif;
+    width: auto;
+    font-size: 2rem;
 }
+
+.p__eliminar,
+.p__actualizar {
+    margin: 0.5rem;
+}
+
+.p__eliminar:hover,
+.p__actualizar:hover{
+    color:#000000;
+    
+    transition: transform 0.3s;
+    transform: scale(1.20);
+}
+/** Fin Producto **/
 
 /** Footer **/
 footer {
@@ -242,6 +278,7 @@ footer {
     text-align: center;
     padding-bottom: 1rem;
 }
+
 .contendor-enlaces{
     display: flex;
     flex-direction: row;
@@ -250,10 +287,10 @@ footer {
 }
 
 
-/** Log in Form **/ 
+/** Formularios **/ 
 
 .login-body {
-    background-color: rgb(179, 224, 224);
+    background-color: rgba(9, 4, 75, 0.74);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -295,8 +332,8 @@ footer {
     height: 4rem;
     font-size: 1.7rem;
     padding: 0 2.5rem;
-    border-radius: 3rem;
-    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1.7rem;
     border: none;
 }
 
@@ -308,7 +345,7 @@ footer {
     font-weight: 650;   
     font-family: sans-serif;
     margin: 1rem 0;
-    padding: 0 1rem;
+    padding: 0 ;
 }
 
 .input-field:focus {
@@ -334,7 +371,7 @@ select {
     margin: 0 0.5rem;
 }
 
-.mensaje-error {
+.error {
     font-weight: 650;
     font-size: 2rem;
     text-align: center;
@@ -343,8 +380,45 @@ select {
     margin: 0.5rem;
 }
 
+.info {
+    font-weight: 650;
+    font-size: 2rem;
+    text-align: center;
+    font-family: sans-serif;
+    color: #cccccc;
+    margin: 0.5rem;
+}
+
+.message {
+    font-weight: 650;
+    font-size: 2rem;
+    text-align: center;
+    font-family: sans-serif;
+    color: rgb(167, 21, 180);
+    margin: 0.5rem;
+}
+
+.nombre_categoria {
+    font-weight: 650;
+    font-size: 2rem;
+    text-align: center;
+    font-family: sans-serif;
+    color: #cccccc;
+    margin: 0.5rem;
+}
+
+.cancel {
+    font-weight: 650;
+    font-family: sans-serif;
+    margin: 1.2rem;
+    height: 4.5rem;
+    cursor: pointer;
+    color: rgb(10, 6, 4);
+    
+}
+
 .submit {
-    border-radius: 3rem;
+    border-radius: 1rem;
     font-weight: 650;
     font-family: sans-serif;
     margin: 1.2rem;
@@ -393,7 +467,7 @@ select {
     }
 
     .navegacion__enlace{
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         padding: 0.2rem 0;
     }
 
@@ -419,11 +493,11 @@ select {
     }
     
     .producto__precio{
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     
     .producto__nombre{
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .producto__nombre,
@@ -440,6 +514,14 @@ select {
     .producto__imagen {
         width: 100%;
         height:15rem;
+    }
+
+    .producto__categoria {
+        font-size: 1.5rem;
+    }
+
+    .producto__descripcion {
+        font-size: 1.8rem;
     }
 
     .contacto {
@@ -476,7 +558,9 @@ select {
         align-items: center;
 
     }
-
+    span {
+        font-size: 1.5rem;
+    }
     .footer__texto {
         font-family: var(--fuentePrincipal);
         margin: 0;
@@ -490,5 +574,59 @@ select {
     .icon {
         width: 55%;
         height: 100%;
+    }
+}
+
+@media (max-width:412px) {
+
+    .texto-header {
+        font-size: 2rem;
+    }
+
+    .header__imagen {
+        width: 100%;
+        height: 100%;
+    }
+    .navegacion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navegacion__enlace {
+        font-size: 1.7rem;
+    }
+
+    .nosotros__imagen {
+        display: none;
+    }
+    .nosotros {
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    img {
+        width: 15rem;
+    }
+
+    .contacto__contenido {
+        font-size: 1.6rem;
+    }
+    
+    .producto__categoria {
+        font-size: 1.8rem;
+    }
+
+    .icon {
+        width: 55%;
+        height: 100%;
+    }
+
+    .producto__descripcion {
+        font-size: 2rem;
     }
 }
