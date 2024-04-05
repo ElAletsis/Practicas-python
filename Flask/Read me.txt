@@ -1,8 +1,8 @@
 Esta web es un proyecto en el que estoy trabajando, aun falta una funcion para actualizar los productos, terminar de configurar el servidor SMTP para el envio de correos y poder habilitar la funcion y formulario de "reset password"
 Ademas terminar los media query para 2 resoluciones mas  
 
-Para instalar las librerias necesarias para correr el proyecto hay que correr los siguientes comandos:
+Para instalar las librerias necesarias para correr el proyecto hay que ejecutar los siguientes comandos:
 pip install -r path/to/requirements.txt
-$ virtualenv <env_name>
-$ source <env_name>/bin/activate
-(<env_name>)$ pip install -r path/to/requirements.txt
+virtualenv <env_name>
+source <env_name>/bin/activate
+pip install -r path/to/requirements.txt
