@@ -39,13 +39,13 @@
                 {{ form.submit(class="submit", label="Crear articulo")}}
             </div>
         </form>
-        {% with messages = get_flashed_messages() %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                    {% for message in messages %}
+                    {% for category, message in messages %}
                         <p class="mensaje-error">{{ message }}</p>
                     {% endfor %}
             {%endif%}
-        {%endwith%}
+        {% endwith %}
     </div>
 </body>
 </html>
