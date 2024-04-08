@@ -1,7 +1,0 @@
-Esta es la primer web que diseño usando flask como framework en el backend
-
-Para instalar las librerias necesarias para correr el proyecto hay que ejecutar los siguientes comandos:
-pip install -r path/to/requirements.txt
-virtualenv <env_name>
-source <env_name>/bin/activate
-pip install -r path/to/requirements.txt
